@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,4 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.browserSync("127.0.0.1:8000")
+mix.styles(
+    ["public/css/style.css", "public/css/main.css"],
+    "public/css/main.min.css"
+).browserSync("127.0.0.1:8000");

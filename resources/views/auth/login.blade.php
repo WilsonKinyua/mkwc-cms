@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
+                <h3 class="text-center">{{ trans('panel.site_title') }}</h3>
 
                 <p class="text-muted">{{ trans('global.login') }}</p>
 
@@ -68,9 +68,9 @@
                                     {{ trans('global.forgot_password') }}
                                 </a><br>
                             @endif
-                            <a class="btn btn-link px-0" href="{{ route('register') }}">
+                            {{-- <a class="btn btn-link px-0" href="{{ route('register') }}">
                                 {{ trans('global.register') }}
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </form>
