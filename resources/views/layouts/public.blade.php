@@ -69,7 +69,7 @@
                     © 2022 | All rights reserved
                 </div>
                 <div class="col-6 pb-3 text-end">
-                    <a href="#home" class="pe-4">Home</a>
+                    <a href="{{ route('index.home')}}" class="pe-4">Home</a>
                     <a href="contact.html">Contacts</a>
                 </div>
 
