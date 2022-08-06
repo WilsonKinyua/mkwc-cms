@@ -34,7 +34,7 @@
             </p>
         </div>
         <div class="col-md-4 text-center">
-            <a class="navbar-brand" href="{{ route('index.home')}}">
+            <a class="navbar-brand" href="{{ route('index.home') }}">
                 <div class="logo">
                     <img src="{{ asset('img/logo.png') }}" height="80px" alt="Logo">
                 </div>
@@ -60,7 +60,7 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <nav id="main-nav">
                 <ul id="main-menu" class="sm sm-simple">
-                    <li><a class="current" href="">Home</a></li>
+                    <li><a class="current" href="{{ route('index.home') }}">Home</a></li>
                     <li>
                         <a href="about-us">About MKWC </a>
                     </li>
