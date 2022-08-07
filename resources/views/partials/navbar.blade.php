@@ -62,8 +62,8 @@
                 <ul id="main-menu" class="sm sm-simple">
                     <li><a href="{{ route('index.home') }}">Home</a></li>
                     <li>
-                        <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'current' : '' }}"
-                            href="{{ route('about.us') }}">About MKWC </a>
+                        <a class="{{ request()->is('about-us') ? 'current' : '' }}" href="{{ route('about.us') }}">About
+                            MKWC </a>
                     </li>
                     <li><a href="javascript:;"
                             class="{{ request()->is('breeding-rewilding') || request()->is('conservation-education') || request()->is('animal-orphanage') ? 'current' : '' }}">What
@@ -82,8 +82,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="" href="gallery-view">Gallery</a></li>
-
+                    <li><a class="{{ request()->is('gallery') || request()->is('gallery/*') ? 'current' : '' }}"
+                            href="{{ route('gallery') }}">Gallery</a></li>
                     <li><a class="" href="javascript:;">In the
                             press</a>
                         <ul>

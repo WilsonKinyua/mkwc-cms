@@ -31,7 +31,13 @@ class GalleryController extends Controller
     {
         abort_if(Gate::denies('gallery_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = GalleryCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $galleriesCategories = Gallery::all();
+
+        foreach ($galleriesCategories as $gallery) {
+            $categories = GalleryCategory::where('id', '!=', $gallery->category_id)->get()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        }
+
+        // $categories = GalleryCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.galleries.create', compact('categories'));
     }

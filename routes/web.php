@@ -6,6 +6,8 @@ Route::get('about-us', 'PublicController@aboutUs')->name('about.us');
 Route::get('breeding-rewilding', 'PublicController@breedingRewilding')->name('breeding.rewilding');
 Route::get('animal-orphanage', 'PublicController@animalOrphanage')->name('animal.orphanage');
 Route::get('conservation-education', 'PublicController@conservationEducation')->name('conservation.education');
+Route::get('gallery', 'PublicController@gallery')->name('gallery');
+Route::get('gallery/{slug}', 'PublicController@galleryCategory')->name('gallery.category');
 
 // private routes
 Route::get('/home', function () {

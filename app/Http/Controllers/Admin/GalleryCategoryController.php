@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class GalleryCategoryController extends Controller
 {
@@ -35,6 +36,9 @@ class GalleryCategoryController extends Controller
 
     public function store(StoreGalleryCategoryRequest $request)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
         $galleryCategory = GalleryCategory::create($request->all());
 
         if ($request->input('image', false)) {
@@ -57,6 +61,9 @@ class GalleryCategoryController extends Controller
 
     public function update(UpdateGalleryCategoryRequest $request, GalleryCategory $galleryCategory)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
         $galleryCategory->update($request->all());
 
         if ($request->input('image', false)) {
