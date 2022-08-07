@@ -10,4 +10,20 @@ class PublicController extends Controller
     {
         return view('public.index');
     }
+    public function aboutUs()
+    {
+        return view('public.about-us');
+    }
+    public function breedingRewilding()
+    {
+        return view('public.breeding-rewilding');
+    }
+    public function animalOrphanage()
+    {
+        return view('public.animal-orphanage');
+    }
+    public function conservationEducation()
+    {
+        return view('public.conservation-education');
+    }
 }

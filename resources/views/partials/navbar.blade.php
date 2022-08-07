@@ -60,14 +60,18 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <nav id="main-nav">
                 <ul id="main-menu" class="sm sm-simple">
-                    <li><a class="current" href="{{ route('index.home') }}">Home</a></li>
+                    <li><a href="{{ route('index.home') }}">Home</a></li>
                     <li>
-                        <a href="about-us">About MKWC </a>
+                        <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'current' : '' }}"
+                            href="{{ route('about.us') }}">About MKWC </a>
                     </li>
-                    <li><a href="javascript:;">What we do </a>
+                    <li><a href="javascript:;"
+                            class="{{ request()->is('breeding-rewilding') || request()->is('conservation-education') || request()->is('animal-orphanage') ? 'current' : '' }}">What
+                            we do </a>
                         <ul>
                             <li>
-                                <a title="Event Grid" href="breeding-rewilding">Mountain Bongo Breeding and
+                                <a title="Event Grid" href="{{ route('breeding.rewilding') }}">Mountain Bongo Breeding
+                                    and
                                     Rewilding</a>
                             </li>
                             <li>

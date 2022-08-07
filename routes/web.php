@@ -2,6 +2,10 @@
 
 // public routes
 Route::get('/', 'PublicController@index')->name('index.home');
+Route::get('about-us', 'PublicController@aboutUs')->name('about.us');
+Route::get('breeding-rewilding', 'PublicController@breedingRewilding')->name('breeding.rewilding');
+Route::get('animal-orphanage', 'PublicController@animalOrphanage')->name('animal.orphanage');
+Route::get('conservation-education', 'PublicController@conservationEducation')->name('conservation.education');
 
 // private routes
 Route::get('/home', function () {
