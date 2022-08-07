@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\InTheMedium;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -46,5 +47,10 @@ class PublicController extends Controller
     {
         $inTheMedia = InTheMedium::paginate(5);
         return view('public.newsroom', compact('inTheMedia'));
+    }
+    public function newsletter()
+    {
+        $newsletter = Newsletter::all();
+        return view('public.newsletter', compact('newsletter'));
     }
 }

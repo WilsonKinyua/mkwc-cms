@@ -84,11 +84,13 @@
                     </li>
                     <li><a class="{{ request()->is('gallery') || request()->is('gallery/*') ? 'current' : '' }}"
                             href="{{ route('gallery') }}">Gallery</a></li>
-                    <li><a class="{{ request()->is('newsroom') || request()->is('newsroom/*') ? 'current' : '' }}" href="newsroom">Newsroom</a></li>
-                    <li><a class="" href="newsletter">Newsletters</a></li>
+                    <li><a class="{{ request()->is('newsroom') || request()->is('newsroom/*') ? 'current' : '' }}"
+                            href="newsroom">Newsroom</a></li>
+                    <li><a class="{{ request()->is('newsletter') ? 'current' : '' }}"
+                            href="{{ route('newsletter') }}">Newsletters</a></li>
                     <li><a class="" href="donate">Get Involved</a></li>
 
-                    <li><a class=" current" href="contact.html">Contact Us</a>
+                    <li><a class="" href="contact.html">Contact Us</a>
                     </li>
 
                 </ul>

@@ -28,7 +28,7 @@
                     <hr>
                     <div class="row newsroom-category mt-5">
                         <div class="col-md-2">
-                            <a href="" class="active">
+                            <a href="{{ route('newsroom')}}" class="active">
                                 In the Media
                             </a>
                         </div>

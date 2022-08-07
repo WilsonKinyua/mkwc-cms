@@ -9,6 +9,7 @@ Route::get('conservation-education', 'PublicController@conservationEducation')->
 Route::get('gallery', 'PublicController@gallery')->name('gallery');
 Route::get('gallery/{slug}', 'PublicController@galleryCategory')->name('gallery.category');
 Route::get('newsroom', 'PublicController@newsroom')->name('newsroom');
+Route::get('newsletter', 'PublicController@newsletter')->name('newsletter');
 
 // private routes
 Route::get('/home', function () {

@@ -68,8 +68,8 @@
     },
     params: {
       size: 20,
-      width: 4096,
-      height: 4096
+    //   width: 4096,
+    //   height: 4096
     },
     success: function (file, response) {
       $('form').find('input[name="newsletter_image"]').remove()
@@ -120,9 +120,9 @@
     headers: {
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     },
-    params: {
-      size: 50
-    },
+    // params: {
+    //   size: 50
+    // },
     success: function (file, response) {
       $('form').find('input[name="document_file"]').remove()
       $('form').append('<input type="hidden" name="document_file" value="' + response.name + '">')
