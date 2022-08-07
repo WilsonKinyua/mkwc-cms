@@ -12,7 +12,7 @@
             @csrf
             <div class="form-group">
                 <label class="required" for="category_id">{{ trans('cruds.gallery.fields.category') }}</label>
-                <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category_id" id="category_id" required>
+                <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" disabled name="category_id" id="category_id" required>
                     @foreach($categories as $id => $entry)
                         <option value="{{ $id }}" {{ (old('category_id') ? old('category_id') : $gallery->category->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
