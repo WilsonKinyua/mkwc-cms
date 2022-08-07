@@ -10,6 +10,8 @@ Route::get('gallery', 'PublicController@gallery')->name('gallery');
 Route::get('gallery/{slug}', 'PublicController@galleryCategory')->name('gallery.category');
 Route::get('newsroom', 'PublicController@newsroom')->name('newsroom');
 Route::get('newsletter', 'PublicController@newsletter')->name('newsletter');
+Route::get('donate', 'PublicController@donate')->name('donate');
+Route::get('contact', 'PublicController@contact')->name('contact');
 
 // private routes
 Route::get('/home', function () {

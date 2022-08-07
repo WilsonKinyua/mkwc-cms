@@ -48,9 +48,20 @@ class PublicController extends Controller
         $inTheMedia = InTheMedium::paginate(5);
         return view('public.newsroom', compact('inTheMedia'));
     }
+
     public function newsletter()
     {
         $newsletter = Newsletter::all();
         return view('public.newsletter', compact('newsletter'));
+    }
+
+    public function donate()
+    {
+        return view('public.donate');
+    }
+
+    public function contact()
+    {
+        return view('public.contact');
     }
 }

@@ -75,10 +75,10 @@
                                     Rewilding</a>
                             </li>
                             <li>
-                                <a title="Event Grid" href="animal-orphanage">Animal Orphanage</a>
+                                <a title="Event Grid" href="{{ route('animal.orphanage')}}">Animal Orphanage</a>
                             </li>
                             <li>
-                                <a title="Event Grid" href="conservation-education">Conservation Education</a>
+                                <a title="Event Grid" href="{{ route('conservation.education')}}">Conservation Education</a>
                             </li>
                         </ul>
                     </li>
@@ -88,11 +88,10 @@
                             href="newsroom">Newsroom</a></li>
                     <li><a class="{{ request()->is('newsletter') ? 'current' : '' }}"
                             href="{{ route('newsletter') }}">Newsletters</a></li>
-                    <li><a class="" href="donate">Get Involved</a></li>
-
-                    <li><a class="" href="contact.html">Contact Us</a>
+                    <li><a class="{{ request()->is('donate') ? 'current' : '' }}" href="{{ route('donate') }}">Get
+                            Involved</a></li>
+                    <li><a class="{{ request()->is('contact') ? 'current' : '' }}" href="{{ route('contact')}}">Contact Us</a>
                     </li>
-
                 </ul>
             </nav>
         </div>
