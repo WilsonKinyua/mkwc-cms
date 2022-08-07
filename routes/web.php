@@ -8,6 +8,7 @@ Route::get('animal-orphanage', 'PublicController@animalOrphanage')->name('animal
 Route::get('conservation-education', 'PublicController@conservationEducation')->name('conservation.education');
 Route::get('gallery', 'PublicController@gallery')->name('gallery');
 Route::get('gallery/{slug}', 'PublicController@galleryCategory')->name('gallery.category');
+Route::get('newsroom', 'PublicController@newsroom')->name('newsroom');
 
 // private routes
 Route::get('/home', function () {

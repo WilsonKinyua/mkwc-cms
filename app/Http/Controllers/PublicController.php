@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
+use App\Models\InTheMedium;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -38,6 +39,12 @@ class PublicController extends Controller
     {
         $galleryCategory = GalleryCategory::where('slug', $slug)->first();
         $gallery = Gallery::where('category_id', $galleryCategory->id)->first();
-        return view('public.gallery-category', compact('gallery','galleryCategory'));
+        return view('public.gallery-category', compact('gallery', 'galleryCategory'));
+    }
+
+    public function newsroom()
+    {
+        $inTheMedia = InTheMedium::paginate(5);
+        return view('public.newsroom', compact('inTheMedia'));
     }
 }

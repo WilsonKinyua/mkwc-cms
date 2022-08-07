@@ -12,6 +12,6 @@ const mix = require("laravel-mix");
  */
 
 mix.styles(
-    ["public/css/style.css", "public/css/main.css"],
+    ["public/css/style.css"],
     "public/css/main.min.css"
 ).browserSync("127.0.0.1:8000");

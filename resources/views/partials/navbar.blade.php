@@ -84,14 +84,7 @@
                     </li>
                     <li><a class="{{ request()->is('gallery') || request()->is('gallery/*') ? 'current' : '' }}"
                             href="{{ route('gallery') }}">Gallery</a></li>
-                    <li><a class="" href="javascript:;">In the
-                            press</a>
-                        <ul>
-                            <li><a class="" href="program">Program</a></li>
-                            <li><a class="" href="news">In the news</a></li>
-                            <li><a class="" href="media">In the media</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="{{ request()->is('newsroom') || request()->is('newsroom/*') ? 'current' : '' }}" href="newsroom">Newsroom</a></li>
                     <li><a class="" href="newsletter">Newsletters</a></li>
                     <li><a class="" href="donate">Get Involved</a></li>
 

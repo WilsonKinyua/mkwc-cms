@@ -56,7 +56,7 @@
                                 {{ $inTheMedium->media_house ?? '' }}
                             </td>
                             <td>
-                                {{ $inTheMedium->media_url_link ?? '' }}
+                                <a href="{{ $inTheMedium->media_url_link ?? '' }}" target="_blank" rel="noopener noreferrer">View</a>
                             </td>
                             <td>
                                 {{ $inTheMedium->date ?? '' }}

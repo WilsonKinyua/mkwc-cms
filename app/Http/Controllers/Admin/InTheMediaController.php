@@ -13,6 +13,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class InTheMediaController extends Controller
 {
@@ -37,6 +38,9 @@ class InTheMediaController extends Controller
 
     public function store(StoreInTheMediumRequest $request)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
         $inTheMedium = InTheMedium::create($request->all());
 
         if ($request->input('image', false)) {
@@ -59,6 +63,9 @@ class InTheMediaController extends Controller
 
     public function update(UpdateInTheMediumRequest $request, InTheMedium $inTheMedium)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
         $inTheMedium->update($request->all());
 
         if ($request->input('image', false)) {

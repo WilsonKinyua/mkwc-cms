@@ -36,6 +36,7 @@
 
         gtag('config', 'G-CRDK6TS6G8');
     </script> --}}
+    @yield('styles')
 </head>
 
 <body>
