@@ -22,7 +22,7 @@ class GalleryController extends Controller
     {
         abort_if(Gate::denies('gallery_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $galleries = Gallery::with(['category', 'media'])->get();
+        $galleries = Gallery::with(['category', 'media'])->orderBy('id','asc')->get();
 
         return view('admin.galleries.index', compact('galleries'));
     }
@@ -38,8 +38,6 @@ class GalleryController extends Controller
         foreach ($galleriesCategories as $gallery) {
             $categories = GalleryCategory::where('id', '!=', $gallery->category_id)->get()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
         }
-
-        
 
         return view('admin.galleries.create', compact('categories'));
     }
