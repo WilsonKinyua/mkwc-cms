@@ -123,7 +123,7 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'inTheMedia' => [
+    'inTheMedium' => [
         'title'          => 'In The Media',
         'title_singular' => 'In The Media',
         'fields'         => [
