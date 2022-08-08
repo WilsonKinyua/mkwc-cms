@@ -123,9 +123,9 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'inTheMedium' => [
+    'inTheMedia' => [
         'title'          => 'In The Media',
-        'title_singular' => 'In The Medium',
+        'title_singular' => 'In The Media',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',
