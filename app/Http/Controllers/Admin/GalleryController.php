@@ -33,11 +33,13 @@ class GalleryController extends Controller
 
         $galleriesCategories = Gallery::all();
 
+        $categories = GalleryCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         foreach ($galleriesCategories as $gallery) {
             $categories = GalleryCategory::where('id', '!=', $gallery->category_id)->get()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
         }
 
-        $categories = GalleryCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        
 
         return view('admin.galleries.create', compact('categories'));
     }
