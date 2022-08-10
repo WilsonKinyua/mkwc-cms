@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\InTheMedium;
+use App\Models\InTheNew;
+use App\Models\MediaResource;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -45,8 +47,16 @@ class PublicController extends Controller
 
     public function newsroom()
     {
-        $inTheMedia = InTheMedium::paginate(5);
-        return view('public.newsroom', compact('inTheMedia'));
+        $inTheMedia = InTheMedium::paginate(8);
+        $mediaResources = MediaResource::with(['media'])->get();
+        return view('public.newsroom', compact('inTheMedia', 'mediaResources'));
+    }
+
+    public function PressRelease()
+    {
+        $mediaResources = MediaResource::with(['media'])->get();
+        $inTheNews = InTheNew::with(['media'])->get();
+        return view('public.press-release',compact('mediaResources','inTheNews'));
     }
 
     public function newsletter()

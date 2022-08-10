@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class InTheNewController extends Controller
 {
@@ -35,6 +36,9 @@ class InTheNewController extends Controller
 
     public function store(StoreInTheNewRequest $request)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
         $inTheNew = InTheNew::create($request->all());
 
         if ($request->input('photo', false)) {
@@ -48,15 +52,22 @@ class InTheNewController extends Controller
         return redirect()->route('admin.in-the-news.index');
     }
 
-    public function edit(InTheNew $inTheNew)
+    public function edit($id)
     {
         abort_if(Gate::denies('in_the_new_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $inTheNew = InTheNew::findOrFail($id);
 
         return view('admin.inTheNews.edit', compact('inTheNew'));
     }
 
-    public function update(UpdateInTheNewRequest $request, InTheNew $inTheNew)
+    public function update(UpdateInTheNewRequest $request,$id)
     {
+        $request->request->add([
+            'slug' => Str::slug($request->title, '-')
+        ]);
+
+        $inTheNew = InTheNew::findOrFail($id);
+
         $inTheNew->update($request->all());
 
         if ($request->input('photo', false)) {
@@ -73,9 +84,11 @@ class InTheNewController extends Controller
         return redirect()->route('admin.in-the-news.index');
     }
 
-    public function show(InTheNew $inTheNew)
+    public function show($id)
     {
         abort_if(Gate::denies('in_the_new_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $inTheNew = InTheNew::findOrFail($id);
 
         return view('admin.inTheNews.show', compact('inTheNew'));
     }

@@ -20,7 +20,7 @@ class UpdateInTheNewRequest extends FormRequest
             'title' => [
                 'string',
                 'required',
-                'unique:in_the_news,title,' . request()->route('in_the_new')->id,
+                // 'unique:in_the_news,title,' . request()->route('in_the_new')->id,
             ],
             'date_location' => [
                 'string',

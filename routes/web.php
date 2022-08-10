@@ -9,6 +9,8 @@ Route::get('conservation-education', 'PublicController@conservationEducation')->
 Route::get('gallery', 'PublicController@gallery')->name('gallery');
 Route::get('gallery/{slug}', 'PublicController@galleryCategory')->name('gallery.category');
 Route::get('newsroom', 'PublicController@newsroom')->name('newsroom');
+Route::get('newsroom/press-release', 'PublicController@PressRelease')->name('press-release');
+Route::get('newsroom/quotes', 'PublicController@Quotes')->name('quotes');
 Route::get('newsletter', 'PublicController@newsletter')->name('newsletter');
 Route::get('donate', 'PublicController@donate')->name('donate');
 Route::get('contact', 'PublicController@contact')->name('contact');
