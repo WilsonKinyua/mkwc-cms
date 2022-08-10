@@ -28,7 +28,7 @@
                     <hr>
                     <div class="row newsroom-category mt-5">
                         <div class="col-md-2">
-                            <a href="{{ route('newsroom')}}" class="active">
+                            <a href="{{ route('newsroom') }}" class="active">
                                 In the Media
                             </a>
                         </div>
@@ -58,11 +58,11 @@
                     <div class="row g-0 newslist">
                         @foreach ($inTheMedia as $media)
                             <div class="col-md-12">
-                                <h3>Article</h3>
+                                <h3><span class="main-color text-uppercase">{{ $media->media_house }} </span></h3>
                                 <a target="_blank" href="{{ $media->media_url_link ?? '' }}">
                                     {{ $media->title ?? 'No title' }}
                                 </a>
-                                <h3>MARCH 10 2022</h3>
+                                <h3 class="text-uppercase">{{ $media->date ?? '' }}</h3>
                             </div>
                         @endforeach
                         <div class="col-md-12">
