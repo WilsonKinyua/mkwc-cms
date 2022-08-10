@@ -1,8 +1,8 @@
 <div class="col-md-4 newslist-right">
     <h2 class="text-fade">Media Resources</h2>
     <hr>
-    @if (count($mediaResources) > 0)
-        @foreach ($mediaResources as $key => $mediaResource)
+    @if (count(App\Models\MediaResource::with(['media'])->get()) > 0)
+        @foreach (App\Models\MediaResource::with(['media'])->get() as $key => $mediaResource)
             <ul>
                 <li>
                     @if ($mediaResource->file)

@@ -8,6 +8,7 @@ use App\Models\InTheMedium;
 use App\Models\InTheNew;
 use App\Models\MediaResource;
 use App\Models\Newsletter;
+use App\Models\Quote;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -48,15 +49,19 @@ class PublicController extends Controller
     public function newsroom()
     {
         $inTheMedia = InTheMedium::paginate(8);
-        $mediaResources = MediaResource::with(['media'])->get();
-        return view('public.newsroom', compact('inTheMedia', 'mediaResources'));
+        return view('public.newsroom', compact('inTheMedia'));
     }
 
     public function PressRelease()
     {
-        $mediaResources = MediaResource::with(['media'])->get();
         $inTheNews = InTheNew::with(['media'])->get();
-        return view('public.press-release',compact('mediaResources','inTheNews'));
+        return view('public.press-release', compact('inTheNews'));
+    }
+
+    public function Quotes()
+    {
+        $quotes = Quote::all();
+        return view('public.quotes', compact('quotes'));
     }
 
     public function newsletter()
