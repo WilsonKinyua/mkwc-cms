@@ -27,7 +27,7 @@
                     <h2 class="text-fade">Press Releases and News Coverage</h2>
                     <hr>
                     @include('partials.newsroom-navbar')
-                    <div class="row g-0 newslist">
+                    <div class="row g-0 newslist" style="margin-top: 50px">
                         @foreach ($inTheMedia as $media)
                             <div class="col-md-12">
                                 <h3><span class="main-color text-uppercase">{{ $media->media_house }} </span></h3>
