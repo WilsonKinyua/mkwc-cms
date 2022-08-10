@@ -37,18 +37,18 @@
 <script>
     Dropzone.options.imageDropzone = {
     url: '{{ route('admin.quotes.storeMedia') }}',
-    maxFilesize: 2, // MB
+    maxFilesize: 200, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,
     addRemoveLinks: true,
     headers: {
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     },
-    params: {
-      size: 2,
-      width: 4096,
-      height: 4096
-    },
+    // params: {
+    //   size: 2,
+    //   width: 4096,
+    //   height: 4096
+    // },
     success: function (file, response) {
       $('form').find('input[name="image"]').remove()
       $('form').append('<input type="hidden" name="image" value="' + response.name + '">')
