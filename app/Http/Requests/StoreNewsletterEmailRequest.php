@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class StoreNewsletterEmailRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('newsletter_email_create');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('newsletter_email_create');
+    // }
 
     public function rules()
     {

@@ -12,9 +12,11 @@ Route::get('newsroom', 'PublicController@newsroom')->name('newsroom');
 Route::get('newsroom/press-release', 'PublicController@PressRelease')->name('press-release');
 Route::get('newsroom/quotes', 'PublicController@Quotes')->name('quotes');
 Route::get('newsletter', 'PublicController@newsletter')->name('newsletter');
+Route::post('newsletter', 'PublicController@newsletterSignUp')->name('newsletter.sign-up');
 Route::get('donate', 'PublicController@donate')->name('donate');
 Route::get('donors', 'PublicController@donors')->name('donors');
 Route::get('contact', 'PublicController@contact')->name('contact');
+Route::post('contact', 'PublicController@contactCreate')->name('contact.create');
 
 // private routes
 Route::get('/home', function () {

@@ -52,33 +52,56 @@
                         </div>
                     </row>
                     <div>
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('contact.create') }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if ($errors->count() > 0)
+                                        <div class="alert alert-danger">
+                                            <ul class="list-unstyled">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    @if (session('success'))
+                                        <div class="row mb-2">
+                                            <div class="col-lg-12">
+                                                <div class="alert alert-success" role="alert">{{ session('success') }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Name*" required
-                                        minlength="3" value="" />
+                                    <input type="text" name="name" class="form-control" placeholder="Name*"
+                                        minlength="3" value="{{ old('name', '') }}" />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control"
-                                            placeholder="Email address*" required email minlength="4" value="" />
+                                            placeholder="Email address*" email minlength="4"
+                                            value="{{ old('email', '') }}" />
                                         <small class="form-text text-muted">We'll never share your email with anyone
                                             else.</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" name="subject" class="form-control" placeholder="Subject*" required
-                                    minlength="3" value="" />
+                                <input type="text" name="subject" class="form-control" placeholder="Subject*"
+                                    minlength="3" value="{{ old('subject', '') }}" />
                             </div>
                             <div class="form-group mb-4">
-                                <textarea name="message" class="form-control" rows="5" placeholder="Enter your message here*" required></textarea>
-                                <div class="g-recaptcha" data-sitekey="6LcovA8cAAAAAEiQnrvgu-50e6oNbiI3dKu7ap1y"></div>
+                                <textarea name="message" class="form-control" rows="5" placeholder="Enter your message here*">{{ old('message', '') }}</textarea>
+                                {{-- <div class="g-recaptcha" data-sitekey="6LcovA8cAAAAAEiQnrvgu-50e6oNbiI3dKu7ap1y"></div> --}}
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-info">Send
+                                <button type="submit" class="btn btn-block btn-info text-white">Send
                                     Message <i aria-hidden="true" class="fas fa-long-arrow-alt-right"></i></button>
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>

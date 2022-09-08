@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactUsRequest;
+use App\Http\Requests\StoreNewsletterEmailRequest;
+use App\Models\ContactUs;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\InTheMedium;
 use App\Models\InTheNew;
 use App\Models\MediaResource;
 use App\Models\Newsletter;
+use App\Models\NewsletterEmail;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 
@@ -70,6 +74,12 @@ class PublicController extends Controller
         return view('public.newsletter', compact('newsletter'));
     }
 
+    public function newsletterSignUp(StoreNewsletterEmailRequest $request)
+    {
+        NewsletterEmail::create($request->all());
+        return redirect()->back()->with('success', 'Email subscription received successfully');
+    }
+
     public function donate()
     {
         return view('public.donate');
@@ -83,5 +93,11 @@ class PublicController extends Controller
     public function contact()
     {
         return view('public.contact');
+    }
+
+    public function contactCreate(StoreContactUsRequest $request)
+    {
+        ContactUs::create($request->all());
+        return redirect()->back()->with('success', 'Message sent successfully');
     }
 }
