@@ -75,6 +75,11 @@ class PublicController extends Controller
         return view('public.donate');
     }
 
+    public function donors()
+    {
+        return view('public.donors');
+    }
+
     public function contact()
     {
         return view('public.contact');

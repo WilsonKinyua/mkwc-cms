@@ -13,6 +13,7 @@ Route::get('newsroom/press-release', 'PublicController@PressRelease')->name('pre
 Route::get('newsroom/quotes', 'PublicController@Quotes')->name('quotes');
 Route::get('newsletter', 'PublicController@newsletter')->name('newsletter');
 Route::get('donate', 'PublicController@donate')->name('donate');
+Route::get('donors', 'PublicController@donors')->name('donors');
 Route::get('contact', 'PublicController@contact')->name('contact');
 
 // private routes
