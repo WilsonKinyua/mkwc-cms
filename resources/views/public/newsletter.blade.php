@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="card newletter_card mb-3">
                         @if ($newsletter->document_file)
-                            <a href="{{ $newsletter->document_file->getUrl() }}" download="{{ $newsletter->title ?? '' }}">
+                            <a href="{{ $newsletter->document_file->getUrl() }}" target="_blank">
                                 @if ($newsletter->newsletter_image)
                                     <img src="{{ $newsletter->newsletter_image->getUrl() }}"
                                         alt="{{ $newsletter->title ?? '' }}">
