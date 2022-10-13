@@ -20342,3 +20342,63 @@ a {
         border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
     }
 }
+
+.nav-pills .nav-link.active {
+    background-color: #511013;
+    color: #fff;
+}
+
+.nav-pills .nav-link {
+    color: #511013;
+    font-size: 19px;
+}
+
+.form-donate .card {
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 0px;
+    border-radius: 5px;
+    border: none;
+}
+
+.donate-form .form-group {
+    margin-bottom: 20px;
+}
+
+.donate-form label:after {
+    content: " *";
+    color: red;
+}
+
+.donate-form label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.donate-form .form-control {
+    border-radius: 5px !important;
+    padding: 10px;
+}
+
+.donate-form .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #511013;
+}
+
+.donate-form .btn-primary {
+    background-color: #511013;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cards-logos ul {
+    /* display: flex; */
+    list-style: none;
+    display: flex;
+}
+
+.cards-logos li {
+    padding-right: 10px;
+}
