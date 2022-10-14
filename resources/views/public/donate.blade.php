@@ -67,19 +67,22 @@
                                         <li><img src="{{ asset('img/mastercard.svg') }}" height="25px" alt=""></li>
                                     </ul>
                                 </div>
-                                <form class="donate-form" id="donate-form">
+                                <form class="donate-form" id="donateForm">
                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <p id="alert"></p>
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name">First Name</label>
-                                                <input type="text" class="form-control" id="name" name="firstName"
+                                                <input type="text" class="form-control" id="firstName" name="firstName"
                                                     placeholder="John">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name">Last Name</label>
-                                                <input type="text" class="form-control" id="name" name="lastName"
+                                                <input type="text" class="form-control" id="lastName" name="lastName"
                                                     placeholder="Doe">
                                             </div>
                                         </div>
@@ -93,8 +96,9 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
-                                                <input type="text" class="form-control" id="phone"
-                                                    name="phoneNumber" placeholder="+233 614 831 293">
+                                                <input type="text" class="form-control" id="phoneNumber"
+                                                    name="phoneNumber" placeholder="+233 614 831 293" min="10"
+                                                    max="13">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -108,34 +112,36 @@
                                             <div class="form-group">
                                                 <label for="amount">Amount</label>
                                                 <input type="number" class="form-control" id="amount" name="amount"
-                                                    placeholder="4000">
+                                                    placeholder="4000" min="1">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="cardNumber">Card Number</label>
                                                 <input type="number" class="form-control" id="cardNumber"
-                                                    name="cardNumber" placeholder="#### #### #### ####">
+                                                    name="cardNumber" placeholder="#### #### #### ####" minlength="16">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="expirationMonth">Expiration Month</label>
                                                 <input type="number" class="form-control" id="expirationMonth"
-                                                    name="expirationMonth" placeholder="MM">
+                                                    name="expirationMonth" placeholder="MM" minlength="2"
+                                                    maxlength="2">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="expirationYear">Expiration Year</label>
                                                 <input type="number" class="form-control" id="expirationYear"
-                                                    name="expirationYear" placeholder="YYYY">
+                                                    name="expirationYear" placeholder="YYYY" minlength="4"
+                                                    maxlength="4">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <button type="submit"
-                                                    class="btn btn-primary text-uppercase btn-lg">Donate
+                                                <button type="submit" class="btn btn-primary text-uppercase btn-lg"
+                                                    id="donateBtn">Donate
                                                     now</button>
                                             </div>
                                         </div>
@@ -256,7 +262,102 @@
         //     }
         // };
 
-       
+        var form = document.getElementById('donateForm');
 
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // check if csrf token is set
+            if (typeof window.Laravel !== 'undefined') {
+                data.append('_token', window.Laravel.csrfToken);
+            }
+
+            var data = new FormData(form);
+            var alert = document.getElementById('alert');
+            var currentYear = new Date().getFullYear();
+
+            // validate form
+            var firstName = $("#firstName").val();
+            var lastName = $('#lastName').val();
+            var email = $('#email').val();
+            var phoneNumber = $('#phoneNumber').val();
+            var amount = $('#amount').val();
+            var country = $('#country').val();
+            var cardNumber = $('#cardNumber').val();
+            var expirationMonth = $('#expirationMonth').val();
+            var expirationYear = $('#expirationYear').val();
+
+            if (firstName == '' || lastName == '' || email == '' || phoneNumber == '' || amount == '' || country ==
+                '' || cardNumber == '' || expirationMonth == '' || expirationYear == '') {
+                alert.innerHTML =
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">All fields are required to complete the transaction. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                return false;
+            } else if (amount < 1) {
+                alert.innerHTML =
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">Minimum amount to donate is $1. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                return false;
+            } else if (cardNumber.length < 16) {
+                alert.innerHTML =
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">Card number is invalid. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                return false;
+            } else if (expirationMonth < 1 || expirationMonth > 12) {
+                alert.innerHTML =
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">Expiration month is invalid. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                return false;
+            } else if (expirationYear < currentYear || expirationYear > 2040) {
+                alert.innerHTML =
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">Expiration year is invalid. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                return false;
+            } else {
+                alert.innerHTML = '';
+            }
+
+            // clean up data before sending to server
+            data.append('firstName', firstName);
+            data.append('lastName', lastName);
+            data.append('email', email);
+            data.append('phoneNumber', phoneNumber);
+            data.append('amount', amount);
+            data.append('country', country);
+            data.append('cardNumber', cardNumber);
+            data.append('expirationMonth', expirationMonth);
+            data.append('expirationYear', expirationYear);
+
+            // send data to server
+            $.ajax({
+                url: "https://cybersource-sandbox-node-client.onrender.com/api/pay/card",
+                type: "POST",
+                data: data,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $('#donateBtn').html(
+                        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+                    );
+                },
+                success: function(response) {
+                    if (response.status == 'success') {
+                        alert.innerHTML =
+                            '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                            response.message +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                        form.reset();
+                    } else {
+                        alert.innerHTML =
+                            '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            response.text +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                    }
+                },
+                error: function(response) {
+                    alert.innerHTML =
+                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong. Please try again later. You can refresh the browser and try again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                }
+                // remove the spinning loader after getting response from server
+            }).always(function() {
+                $('#donateBtn').html('Donate Now');
+            });
+
+        });
     </script>
 @endsection
