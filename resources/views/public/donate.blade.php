@@ -75,15 +75,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name">First Name</label>
-                                                <input type="text" class="form-control" id="firstName" name="firstName"
-                                                    placeholder="John">
+                                                <input type="text" class="form-control firstName" id="firstName"
+                                                    name="firstName" placeholder="John">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name">Last Name</label>
-                                                <input type="text" class="form-control" id="lastName" name="lastName"
-                                                    placeholder="Doe">
+                                                <input type="text" class="form-control lastName" id="lastName"
+                                                    name="lastName" placeholder="Doe">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -104,8 +104,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="amount">Country</label>
-                                                <input type="text" class="form-control" id="country" name="country"
-                                                    placeholder="North America">
+                                                <input type="text" class="form-control country" id="country"
+                                                    name="country" placeholder="North America">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -272,7 +272,6 @@
                 data.append('_token', window.Laravel.csrfToken);
             }
 
-            var data = new FormData(form);
             var alert = document.getElementById('alert');
             var currentYear = new Date().getFullYear();
 
@@ -312,48 +311,49 @@
                 alert.innerHTML = '';
             }
 
-            // clean up data before sending to server
-            data.append('firstName', firstName);
-            data.append('lastName', lastName);
-            data.append('email', email);
-            data.append('phoneNumber', phoneNumber);
-            data.append('amount', amount);
-            data.append('country', country);
-            data.append('cardNumber', cardNumber);
-            data.append('expirationMonth', expirationMonth);
-            data.append('expirationYear', expirationYear);
-
             // send data to server
             $.ajax({
-                url: "https://cybersource-sandbox-node-client.onrender.com/api/pay/card",
+                url: "https://cybersource-client.onrender.com/api/pay/card",
                 type: "POST",
-                data: data,
-                contentType: false,
-                processData: false,
+                dataType: 'json',
+                data: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    amount: amount,
+                    country: country,
+                    cardNumber: cardNumber,
+                    expirationMonth: expirationMonth,
+                    expirationYear: expirationYear
+                },
+                // processData: false,
                 beforeSend: function() {
                     $('#donateBtn').html(
                         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
                     );
                 },
                 success: function(response) {
-                    if (response.status == 'success') {
+                    // console.log(response.statusCode)
+                    if (response.status === 201) {
+                        console.log(JSON.parse(response.text));
                         alert.innerHTML =
                             '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                            response.message +
+                            JSON.parse(response.text) +
                             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                         form.reset();
                     } else {
+                        console.log(JSON.parse(response.text))
                         alert.innerHTML =
                             '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-                            response.text +
+                            JSON.parse(response.text).message +
                             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                     }
                 },
                 error: function(response) {
                     alert.innerHTML =
-                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong. Please try again later. You can refresh the browser and try again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong. Please try again later. You can try to refresh the browser and try again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                 }
-                // remove the spinning loader after getting response from server
             }).always(function() {
                 $('#donateBtn').html('Donate Now');
             });
