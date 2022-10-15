@@ -334,16 +334,20 @@
                     );
                 },
                 success: function(response) {
-                    // console.log(response.statusCode)
                     if (response.status === 201) {
-                        console.log(JSON.parse(response.text));
-                        alert.innerHTML =
-                            '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                            JSON.parse(response.text) +
-                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        form.reset();
+                        if (JSON.parse(response.text).errorInformation != null) {
+                            alert.innerHTML =
+                                '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                                JSON.parse(response.text).errorInformation.message +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                            $('#donateBtn').html('Donate');
+                        } else {
+                            alert.innerHTML =
+                                '<div class="alert alert-success alert-dismissible fade show" role="alert">Payment successful. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                            $('#donateBtn').html('Donate');
+                            form.reset();
+                        }
                     } else {
-                        console.log(JSON.parse(response.text))
                         alert.innerHTML =
                             '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
                             JSON.parse(response.text).message +
