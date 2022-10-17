@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactUsRequest;
 use App\Http\Requests\StoreNewsletterEmailRequest;
 use App\Models\ContactUs;
+use App\Models\Country;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\InTheMedium;
@@ -82,7 +83,8 @@ class PublicController extends Controller
 
     public function donate()
     {
-        return view('public.donate');
+        $countries = Country::all();
+        return view('public.donate', compact('countries'));
     }
 
     public function donors()

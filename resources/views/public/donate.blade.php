@@ -97,15 +97,22 @@
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
                                                 <input type="text" class="form-control" id="phoneNumber"
-                                                    name="phoneNumber" placeholder="+233 614 831 293" min="10"
+                                                    name="phoneNumber" placeholder="+233614831293" min="10"
                                                     max="13">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="amount">Country</label>
-                                                <input type="text" class="form-control country" id="country"
-                                                    name="country" placeholder="North America">
+                                                <select name="country" id="country" class="form-control" required>
+                                                    <option selected disabled value="">-- Select Country --
+                                                    </option>
+                                                    @foreach ($countries as $country)
+                                                        <option value="{{ $country->short_code }}">
+                                                            {{ $country->name ?? '' }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

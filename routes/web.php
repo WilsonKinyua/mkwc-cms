@@ -109,6 +109,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('mkwc-partners/media', 'MkwcPartnerController@storeMedia')->name('mkwc-partners.storeMedia');
     Route::post('mkwc-partners/ckmedia', 'MkwcPartnerController@storeCKEditorImages')->name('mkwc-partners.storeCKEditorImages');
     Route::resource('mkwc-partners', 'MkwcPartnerController');
+
+    // Countries
+    Route::delete('countries/destroy', 'CountriesController@massDestroy')->name('countries.massDestroy');
+    Route::resource('countries', 'CountriesController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
