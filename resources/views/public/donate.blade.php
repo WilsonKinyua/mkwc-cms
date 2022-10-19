@@ -350,7 +350,7 @@
                             $('#donateBtn').html('Donate');
                         } else {
                             alert.innerHTML =
-                                '<div class="alert alert-success alert-dismissible fade show" role="alert">Payment successful. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                                '<div class="alert alert-success alert-dismissible fade show" role="alert">Payment Successful! Thank you for your donation!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                             $('#donateBtn').html('Donate');
                             form.reset();
                         }
