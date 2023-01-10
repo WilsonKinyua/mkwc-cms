@@ -80,19 +80,17 @@
                                 <div class="card">
                                     <div class="news-image">
                                         @if ($news->photo)
-                                            <a href="">
+                                            <a href="{{ route('press-release.details', $news->slug) }}">
                                                 <img src="{{ $news->photo->getUrl() }}" alt="{{ $news->title ?? '' }}">
                                             </a>
                                         @endif
                                     </div>
                                     <div class="news-info">
-                                        <a href="Fanaka-The-First-baby-Mountain-Bongo-born-in-the-wild-through-conservation-efforts"
-                                            class="news-category">
+                                        <a href="{{ route('press-release.details', $news->slug) }}" class="news-category">
                                             <h6>Press Release</h6>
                                         </a>
                                         <h6 class="news-title">
-                                            <a
-                                                href="Fanaka-The-First-baby-Mountain-Bongo-born-in-the-wild-through-conservation-efforts">
+                                            <a href="{{ route('press-release.details', $news->slug) }}">
                                                 {{ $news->title ?? '' }}
                                             </a>
                                         </h6>
@@ -104,8 +102,6 @@
                                 <h4 class="text-danger">No available Press Releases!</h4>
                             </div>
                         @endforelse
-
-
                     </div>
                 </div>
                 @include('partials.newsroom-sidebar')

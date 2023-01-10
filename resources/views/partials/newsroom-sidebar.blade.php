@@ -26,9 +26,8 @@
     <hr>
     <div class="media-enquiries">
         <h6>General Media Inquiries</h6>
-        <a href="mailto:">media@mountkenyawildlifeconservancy.org</a>
-        <p>John Doe</p>
-        <p>Media Specialist <br><a href="mailto:">johndoe@mountkenyawildlifeconservancy.org</a>
+        <a href="mailto:">info@mountkenyawildlifeconservancy.org</a>
+        <p>Media Specialist <br><a href="mailto:">info@mountkenyawildlifeconservancy.org</a>
         </p>
     </div>
     <div class="subscribe-form text-white">

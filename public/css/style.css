@@ -19620,7 +19620,7 @@ a {
     color: #fff;
 }
 .slider-homepage img {
-    height: 72vh;
+    height: 82vh;
     object-fit: cover;
     margin-top: -45px;
 }
@@ -20218,7 +20218,7 @@ a {
     border-radius: 5px;
     color: #510f13;
     position: absolute;
-    margin-top: -300px;
+    margin-top: -420px;
     padding-top: 10px;
     text-align: center;
 }
@@ -20229,14 +20229,14 @@ a {
     font-weight: 600;
 }
 .carousel-inner.small-screens img {
-    height: 400px;
+    height: 550px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 @media only screen and (min-width: 1400px) and (max-width: 2000px) {
     .large-screens .carousel-caption {
-        bottom: 10rem;
+        bottom: 8rem;
     }
 }
 .navbar ul li {

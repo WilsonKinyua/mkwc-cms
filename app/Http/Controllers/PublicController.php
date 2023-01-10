@@ -63,6 +63,16 @@ class PublicController extends Controller
         return view('public.press-release', compact('inTheNews'));
     }
 
+    public function PressReleaseDetails($slug)
+    {
+        if (InTheNew::where('slug', $slug)->exists()) {
+            $inTheNew = InTheNew::with(['media'])->where('slug', $slug)->first();
+            return view('public.press-release-details', compact('inTheNew'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
     public function Quotes()
     {
         $quotes = Quote::all();
