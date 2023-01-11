@@ -18075,8 +18075,10 @@ p {
     margin-bottom: 100px;
 }
 .partner-image img {
-    height: 100px;
+    height: 80px;
+    border-right: 1px solid #ececec;
     padding: 3px;
+    padding-right: 10px;
     margin: 0 10px;
 }
 .hurryup-booking-section {

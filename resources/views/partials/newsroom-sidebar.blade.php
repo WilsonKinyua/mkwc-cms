@@ -24,11 +24,9 @@
     @endif
     <h2 class="text-fade">Media Inquiries</h2>
     <hr>
-    <div class="media-enquiries">
+    <div class="media-enquiries mb-3">
         <h6>General Media Inquiries</h6>
         <a href="mailto:">info@mountkenyawildlifeconservancy.org</a>
-        <p>Media Specialist <br><a href="mailto:">info@mountkenyawildlifeconservancy.org</a>
-        </p>
     </div>
     <div class="subscribe-form text-white">
         <div class="bg-fade">

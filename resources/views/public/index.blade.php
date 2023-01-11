@@ -192,10 +192,10 @@
         <div class="col-md-12 partner-image">
             <p>
                 <a href="https://www.dalbitpetroleum.com/" target="_blank" title="Dalbit Petroleum">
-                    <img src="https://dalbit-petroleum.wezaprosoft.com/images/logo.png" alt="" />
+                    <img src="{{ asset('img/Dalbit.png') }}" alt="Dalbit Logo" />
                 </a>
                 <a href="https://www.januscontinental.com/" target="_blank" title="Janus Continental Group">
-                    <img src="https://www.januscontinental.com/assets/img/logo3.png?v=299376e6e5" alt="" />
+                    <img src="{{ asset('img/JCG.jpeg') }}" alt="JCG Logo" />
                 </a>
             </p>
         </div>
