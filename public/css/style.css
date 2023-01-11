@@ -1051,7 +1051,7 @@ progress {
     .container-md,
     .container-sm,
     .container {
-        max-width: 1320px;
+        max-width: 1380px;
     }
 }
 .row {
@@ -19411,7 +19411,7 @@ html {
     .sm-simple a:focus,
     .sm-simple a:active,
     .sm-simple a.highlighted {
-        padding: 11px 25px;
+        padding: 11px 32px;
         color: #8e3113;
     }
     .sm-simple a:hover,

@@ -60,7 +60,7 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <nav id="main-nav">
                 <ul id="main-menu" class="sm sm-simple">
-                    <li><a href="{{ route('index.home') }}">Home</a></li>
+                    <li><a class="{{ request()->is('/') ? 'current' : '' }}" href="{{ route('index.home') }}">Home</a></li>
                     <li>
                         <a class="{{ request()->is('about-us') ? 'current' : '' }}" href="{{ route('about.us') }}">About
                             MKWC </a>
