@@ -26,6 +26,10 @@ class PublicController extends Controller
     {
         return view('public.about-us');
     }
+    public function ourTrustees()
+    {
+        return view('public.our-trustees');
+    }
     public function breedingRewilding()
     {
         return view('public.breeding-rewilding');
@@ -59,7 +63,7 @@ class PublicController extends Controller
 
     public function PressRelease()
     {
-        $inTheNews = InTheNew::with(['media'])->get();
+        $inTheNews = InTheNew::with(['media'])->orderBy('in_order', 'asc')->get();
         return view('public.press-release', compact('inTheNews'));
     }
 

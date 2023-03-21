@@ -41,6 +41,11 @@
                 <span class="help-block">{{ trans('cruds.inTheNew.fields.date_location_helper') }}</span>
             </div>
             <div class="form-group">
+              <label class="required" for="in_order">Display Order <small>(Eg 3)</small></label>
+              <input class="form-control" type="text" name="in_order" id="in_order" value="{{ old('in_order', $inTheNew->in_order) }}" required>
+              <span class="help-block text-danger">This is the order on how its going to be displayed</span>
+          </div>
+            <div class="form-group">
                 <label class="required" for="photo">{{ trans('cruds.inTheNew.fields.photo') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="photo-dropzone">
                 </div>

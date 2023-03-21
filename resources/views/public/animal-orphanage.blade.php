@@ -22,10 +22,14 @@
                         We solely sustain the operations of the Animal Orphanage by charging an entrance fee and sales from
                         the gift
                         shop. The entry fees are as follows:
-                    <ul class="text-white" style="background-color: #510f13;">
-                        <li> Citizens – Ksh 1,000</li>
+                    <ul class="text-white p-3" style="background-color: #510f13;">
+                        {{-- <li> Citizens – Ksh 1,000</li>
                         <li>Residents – Ksh 1,500</li>
                         <li>Non-Residents – Ksh 2,000</li>
+                        <li>Children (6-12years) – 50% of the adult rate</li> --}}
+                        <li>E.A. Citizens – KES 1,000</li>
+                        <li>Residents – KES 2.000</li>
+                        <li>Non-Residents – KES 3,000</li>
                         <li>Children (6-12years) – 50% of the adult rate</li>
                     </ul>
                     </p>

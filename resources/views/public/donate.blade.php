@@ -171,15 +171,15 @@
                             Kenya
                             Wildlife Conservancy to get your tile. We have different categories of membership: </p>
                         <ul>
-                            <li class="mb-4"><b>Green Friend - $150</b><br>
+                            <li class="mb-4"><b>Green Tile - $200</b><br>
                                 You will be issued a certificate and a green tile bearing your name.
                             </li>
-                            <li class="mb-4"><b>Golden Friend - $500</b><br>
+                            <li class="mb-4"><b>Golden Tile - $500</b><br>
                                 You will be issued a certificate, the Conservancy's prestigious embroidered badge and a gold
                                 title
                                 bearing your name.
                             </li>
-                            <li class="mb-4"><b>Platinum Friend</b><br>
+                            <li class="mb-4"><b>Platinum - $1,000</b><br>
                                 You will be issued a certificate, the Conservancy's prestigious embroidered badge and a
                                 platinum
                                 tile

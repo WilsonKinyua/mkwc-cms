@@ -19622,8 +19622,7 @@ a {
     color: #fff;
 }
 .slider-homepage img {
-    height: 82vh;
-    object-fit: cover;
+    /* height: 100%; */
     margin-top: -45px;
 }
 .stripe {
@@ -20054,6 +20053,10 @@ a {
     background-size: cover;
     height: 70vh;
 }
+
+.our-trustees {
+    height: 50vh;
+}
 .top-header-gallery {
     background-color: rgba(0, 0, 0, 0.163);
 }
@@ -20063,6 +20066,9 @@ a {
     font-size: 3.5rem;
     padding: 240px 0;
     color: #fff;
+}
+.our-trustees h2 {
+    padding: 200px 0;
 }
 .newsroom .inner-header {
     background-image: url("https://images.pexels.com/photos/7709685/pexels-photo-7709685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
@@ -20404,3 +20410,72 @@ a {
 .cards-logos li {
     padding-right: 10px;
 }
+
+/* our trustees */
+.trustees {
+    background-color: #510F13;
+    padding: 10px 0px;
+}
+
+.trustees h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43px;
+}
+
+.trustees-list {
+    padding-top: 40px;
+}
+
+.trustee-wrapper img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    /* height: 100%; */
+}
+
+.trustee-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+   line-height: 29px;
+   color: #fff;
+}
+
+.trustee-content h5 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.trustee-content .fa-quote-left {
+    font-size: 71px;
+    font-weight: 700;
+    line-height: 25px;
+    color: #fff;
+    padding: 30px 0px;
+}
+
+.trustee-content h6 {
+    font-size: 24px;
+    line-height: 29px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.trustee-content .btn-bio {
+    padding: 10px 20px;
+    background-color: #546511;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.trustee-content .main-color,.fa-play {
+    color: #e8d5aa;
+}
+
+.carousel-item .easter-banner {
+    width: 100%;
+    height: 100%;
+    }

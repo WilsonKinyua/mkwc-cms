@@ -60,10 +60,19 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <nav id="main-nav">
                 <ul id="main-menu" class="sm sm-simple">
-                    <li><a class="{{ request()->is('/') ? 'current' : '' }}" href="{{ route('index.home') }}">Home</a></li>
-                    <li>
-                        <a class="{{ request()->is('about-us') ? 'current' : '' }}" href="{{ route('about.us') }}">About
-                            MKWC </a>
+                    <li><a class="{{ request()->is('/') ? 'current' : '' }}" href="{{ route('index.home') }}">Home</a>
+                    </li>
+                    <li><a href="javascript:;"
+                            class="{{ request()->is('about-us') || request()->is('our-trustees') ? 'current' : '' }}">About
+                            MKWC</a>
+                        <ul>
+                            <li>
+                                <a title="Event Grid" href="{{ route('about.us') }}">About Us</a>
+                            </li>
+                            <li>
+                                <a title="Event Grid" href="{{ route('our-trustees') }}">Our Trustees</a>
+                            </li>
+                        </ul>
                     </li>
                     <li><a href="javascript:;"
                             class="{{ request()->is('breeding-rewilding') || request()->is('conservation-education') || request()->is('animal-orphanage') ? 'current' : '' }}">What
@@ -75,10 +84,11 @@
                                     Rewilding</a>
                             </li>
                             <li>
-                                <a title="Event Grid" href="{{ route('animal.orphanage')}}">Animal Orphanage</a>
+                                <a title="Event Grid" href="{{ route('animal.orphanage') }}">Animal Orphanage</a>
                             </li>
                             <li>
-                                <a title="Event Grid" href="{{ route('conservation.education')}}">Conservation Education</a>
+                                <a title="Event Grid" href="{{ route('conservation.education') }}">Conservation
+                                    Education</a>
                             </li>
                         </ul>
                     </li>
@@ -90,7 +100,8 @@
                             href="{{ route('newsletter') }}">Newsletters</a></li>
                     <li><a class="{{ request()->is('donate') ? 'current' : '' }}" href="{{ route('donate') }}">Get
                             Involved</a></li>
-                    <li><a class="{{ request()->is('contact') ? 'current' : '' }}" href="{{ route('contact')}}">Contact Us</a>
+                    <li><a class="{{ request()->is('contact') ? 'current' : '' }}"
+                            href="{{ route('contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </nav>

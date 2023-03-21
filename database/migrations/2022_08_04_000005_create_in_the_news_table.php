@@ -15,6 +15,7 @@ class CreateInTheNewsTable extends Migration
             $table->string('date_location');
             $table->longText('description');
             $table->longText('slug')->nullable();
+            $table->integer('in_order')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

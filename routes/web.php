@@ -18,6 +18,7 @@ Route::get('donate', 'PublicController@donate')->name('donate');
 Route::get('donors', 'PublicController@donors')->name('donors');
 Route::get('contact', 'PublicController@contact')->name('contact');
 Route::post('contact', 'PublicController@contactCreate')->name('contact.create');
+Route::get('our-trustees', 'PublicController@ourTrustees')->name('our-trustees');
 
 // private routes
 Route::get('/home', function () {

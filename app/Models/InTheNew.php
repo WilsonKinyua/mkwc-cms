@@ -34,6 +34,7 @@ class InTheNew extends Model implements HasMedia
         'date_location',
         'description',
         'slug',
+        'in_order',
         'created_at',
         'updated_at',
         'deleted_at',
