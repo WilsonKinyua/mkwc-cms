@@ -15,8 +15,7 @@
             </div>
             <div class="carousel-inner large-screens pt-5">
                 <div class="carousel-item active">
-                    <a href="https://www.tripadvisor.com/Attraction_Review-g612348-d12342442-Reviews-Mount_Kenya_Wildlife_Conservancy-Nanyuki_Town_Nanyuki_Municipality_Laikipia_Coun.html"
-                        target="_blank">
+                    <a href="animal-orphanage">
                         <img src="img/easter.png" class="easter-banner" alt="slider">
                     </a>
                 </div>
@@ -38,8 +37,8 @@
             </div>
             <div class="carousel-inner small-screens">
                 {{-- <div class="carousel-item active">
-                    <a href="https://www.tripadvisor.com/Attraction_Review-g612348-d12342442-Reviews-Mount_Kenya_Wildlife_Conservancy-Nanyuki_Town_Nanyuki_Municipality_Laikipia_Coun.html"
-                        target="_blank">
+                    <a href="animal-orphanage"
+                        >
                         <img src="img/easter.png" class="d-block w-100" alt="slider">
                     </a>
                 </div> --}}
