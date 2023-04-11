@@ -10,16 +10,16 @@
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
+                {{-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button> --}}
             </div>
             <div class="carousel-inner large-screens pt-5">
-                <div class="carousel-item active">
+                {{-- <div class="carousel-item active">
                     <a href="animal-orphanage">
                         <img src="img/easter.png" class="easter-banner" alt="slider">
                     </a>
-                </div>
-                <div class="carousel-item">
+                </div> --}}
+                <div class="carousel-item active">
                     <a href="breeding-rewilding">
                         <img src="img/slider-1.png" class="d-block w-100" alt="slider">
                     </a>

@@ -57,7 +57,7 @@ class PublicController extends Controller
 
     public function newsroom()
     {
-        $inTheMedia = InTheMedium::paginate(8);
+        $inTheMedia = InTheMedium::orderBy('created_at', 'desc')->paginate(8);
         return view('public.newsroom', compact('inTheMedia'));
     }
 
