@@ -9,12 +9,17 @@
             MKWC Press Release
         </a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <a href="{{ route('quotes') }}" class="{{ request()->is('newsroom/quotes') ? 'active' : '' }}">
             Quotes
         </a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
+        <a href="{{ route('videos') }}" class="{{ request()->is('newsroom/videos') ? 'active' : '' }}">
+            Videos
+        </a>
+    </div>
+    <div class="col-md-3">
         <form>
             <div class="row g-0">
                 <div class="col-md-9">

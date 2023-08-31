@@ -10,16 +10,16 @@
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
-                {{-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button> --}}
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner large-screens pt-5">
-                {{-- <div class="carousel-item active">
-                    <a href="animal-orphanage">
-                        <img src="img/easter.png" class="easter-banner" alt="slider">
-                    </a>
-                </div> --}}
                 <div class="carousel-item active">
+                    <a href="animal-orphanage">
+                        <img src="img/bongo-event.png" class="easter-banner" alt="slider">
+                    </a>
+                </div>
+                <div class="carousel-item">
                     <a href="breeding-rewilding">
                         <img src="img/slider-1.png" class="d-block w-100" alt="slider">
                     </a>
@@ -36,13 +36,12 @@
                 </div>
             </div>
             <div class="carousel-inner small-screens">
-                {{-- <div class="carousel-item active">
-                    <a href="animal-orphanage"
-                        >
-                        <img src="img/easter.png" class="d-block w-100" alt="slider">
-                    </a>
-                </div> --}}
                 <div class="carousel-item active">
+                    <a href="animal-orphanage">
+                        <img src="{{ asset('img/trek bongo.png') }}" class="d-block w-100" alt="slider">
+                    </a>
+                </div>
+                <div class="carousel-item">
                     <img src="img/image01.png" class="d-block w-100" alt="slider">
                     <div class=" carousel-caption-small-device">
                         <h6>Mountain Bongo Breeding & Rewilding Programme</h6>

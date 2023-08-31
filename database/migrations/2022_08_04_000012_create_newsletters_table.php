@@ -11,6 +11,7 @@ class CreateNewslettersTable extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->integer('in_order');
             $table->timestamps();
             $table->softDeletes();
         });

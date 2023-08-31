@@ -21,7 +21,7 @@ class NewsletterController extends Controller
     {
         abort_if(Gate::denies('newsletter_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $newsletters = Newsletter::with(['media'])->get();
+        $newsletters = Newsletter::with(['media'])->orderBy("in_order", "desc")->get();
 
         return view('admin.newsletters.index', compact('newsletters'));
     }

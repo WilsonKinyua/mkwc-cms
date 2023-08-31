@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\PdfToText\Pdf;
 use App\Http\Requests\StoreContactUsRequest;
 use App\Http\Requests\StoreNewsletterEmailRequest;
 use App\Models\ContactUs;
@@ -83,10 +84,25 @@ class PublicController extends Controller
         return view('public.quotes', compact('quotes'));
     }
 
+    public function videos()
+    {
+        return view('public.videos');
+    }
+
     public function newsletter()
     {
-        $newsletter = Newsletter::all();
+        $newsletter = Newsletter::orderBy("in_order", "desc")->get();
         return view('public.newsletter', compact('newsletter'));
+    }
+
+    public function showNewsletter($title)
+    {
+        $newsletter = Newsletter::where('title', str_replace('-', ' ', $title))->first();
+        abort_if(!$newsletter, 404);
+
+        $text = Pdf::getText($newsletter->newsletter_image->getUrl());
+
+        return view('public.show-newsletter', compact('text'));
     }
 
     public function newsletterSignUp(StoreNewsletterEmailRequest $request)

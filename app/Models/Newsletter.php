@@ -31,6 +31,7 @@ class Newsletter extends Model implements HasMedia
 
     protected $fillable = [
         'title',
+        'in_order',
         'created_at',
         'updated_at',
         'deleted_at',
